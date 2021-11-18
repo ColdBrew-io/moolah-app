@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 
+//TODO: finish setup via https://www.youtube.com/watch?v=ZZp0VIjTsbM (18:00)
+
 // set to use either the env.PORT macro or 3000
 const port = process.env.PORT || 3000
 
