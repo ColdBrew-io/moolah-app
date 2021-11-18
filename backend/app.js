@@ -17,21 +17,19 @@ const connection = mysql.createConnection({
 // view engine
 app.set('view engine', 'ejs')
 
-connection.query('SELECT * FROM budgets', (error, rows) => {
-
-    if(error) throw error;
-
-    if(!error){
-        console.log("select successful");
-        console.log(rows);
-    }
-
-})
-
-
 // render
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.render('pages/index')
+
+    connection.query('SELECT * FROM budgets', (error, rows) => {
+        if (error) throw error;
+
+        if (!error) {
+            console.log(rows)
+            res.render('pages/index', { rows })
+        }
+
+    })
 })
 
 app.listen(port)
