@@ -11,6 +11,7 @@ interface InstructionGroup
 {
     title: string;
     instruction: string;
+    id: Number;
 }
 
 export const InstructionsPage: React.FC = () =>
@@ -22,9 +23,9 @@ export const InstructionsPage: React.FC = () =>
     });
 
     var InstructionGroup: InstructionGroup[] = [
-        { "title": "Spend within budget", "instruction": "Set your monthly budget and see how well you manage your expendatures!" },
-        { "title": "Make it a habit.", "instruction": "Keep track of all your purchases in one simple app." },
-        { "title": "No Diggity.", "instruction": "Monthly analysis to see where your money goes and see how much you can save instead." }
+        { "title": "Spend within budget", "instruction": "Set your monthly budget and see how well you manage your expendatures!", "id": 1 },
+        { "title": "Make it a habit.", "instruction": "Keep track of all your purchases in one simple app.", "id": 2 },
+        { "title": "No Diggity.", "instruction": "Monthly analysis to see where your money goes and see how much you can save instead.", "id": 3 }
     ];
     const [pageValue, setPageValue] = React.useState(0);
     let history = useHistory();
@@ -67,10 +68,10 @@ export const InstructionsPage: React.FC = () =>
                 justifyContent="center"
                 style={{ minHeight: '70vh' }}
             >
-                <Typography variant="h4" component="h1" fontFamily='jost' fontWeight="bold">
+                <Typography key={"pageb1" + pageValue.toString()} variant="h4" component="h1" fontFamily='jost' fontWeight="bold">
                     {InstructionGroup[pageValue].title}
                 </Typography>
-                <Typography style={{ width: '80%', paddingBottom: '20%' }} align='center' variant="body1" component="h1">
+                <Typography key={"pageb2" + pageValue.toString()} style={{ width: '80%', paddingBottom: '20%' }} align='center' variant="body1" component="h1">
                     {InstructionGroup[pageValue].instruction}
                 </Typography>
 
@@ -83,10 +84,10 @@ export const InstructionsPage: React.FC = () =>
                         style={{ paddingBottom: "50px" }}
                     >
                         {
-                            InstructionGroup.map(() =>
+                            InstructionGroup.map(inst =>
                                 <div>
                                     {
-                                        <Card sx={{
+                                        <Card key="{inst.id}" sx={{
                                             margin: '3px',
                                             width: (pg === pageValue) ? 15 : 10,
                                             height: 10,

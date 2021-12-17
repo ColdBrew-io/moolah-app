@@ -42,14 +42,13 @@ const SummaryCard: React.FC<props> =
                     <TextField
                         id="standard-required"
                         label="Enter Budget tag here"
-                        defaultValue={mbudgetType}
                         variant="standard"
-                        value={budgetType}
+                        value={mbudgetType}
                         onChange={InputChangeSetBudgetType}
                     />)
             } else
             {
-                return (<Typography>{budgetType}</Typography>)
+                return (<Typography>{mbudgetType}</Typography>)
             }
         }
         const renderBudget = () =>
@@ -60,7 +59,7 @@ const SummaryCard: React.FC<props> =
                     <TextField
                         id="standard-required"
                         label="Enter Budget here"
-                        defaultValue={mbudgetValue}
+                        value={mbudgetValue}
                         variant="standard"
                         type="number"
                         inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -78,7 +77,7 @@ const SummaryCard: React.FC<props> =
                 return (<TextField
                     id="standard-required"
                     label="Enter savings goal here"
-                    defaultValue={msavingsGoal}
+                    value={msavingsGoal}
                     variant="standard"
                     type="number"
                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
