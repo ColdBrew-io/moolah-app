@@ -8,16 +8,19 @@ import { Box } from "@mui/system";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
+import Axios from "axios";
 
-export default class SummaryPage extends React.Component
-{
+export default class SummaryPage extends React.Component {
 
     //on button press - send to server
-    sendToServer = () =>
-    {
+    sendToServer = () => {
+        //console.log("sendToServer", `${process.env.NEXT_PUBLIC_PART_ENDPOINT}`);
+        Axios.get(`http://localhost:5000/budgets`)
+            .then(response => {
+                console.log(response)
+            });
     }
-    render()
-    {
+    render() {
         return (
             <div>
                 <ThemeProvider theme={themeDark}>
