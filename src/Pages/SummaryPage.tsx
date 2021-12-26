@@ -2,7 +2,6 @@ import React from "react";
 import SummaryCard from "../Components/SummaryCard";
 import { ThemeProvider } from '@mui/material/styles';
 import { themeDark } from "../Theme/Theme";
-
 import { Link } from 'react-router-dom';
 import { Box } from "@mui/system";
 import Button from '@mui/material/Button';
@@ -11,15 +10,20 @@ import { Grid } from "@mui/material";
 import Axios from "axios";
 
 export default class SummaryPage extends React.Component {
-
     //on button press - send to server
     sendToServer = () => {
-        //console.log("sendToServer", `${process.env.NEXT_PUBLIC_PART_ENDPOINT}`);
-        Axios.get(`http://localhost:5000/budgets`)
-            .then(response => {
-                console.log(response)
-            });
+        //TODO: should be done using env
+        console.log("posting")
+        Axios.post(`http://moolah-app-backend.herokuapp.com/budgets`, {
+            budget_type: "Essentials",
+            budget_amount: 200,
+            saving_goal: 500,
+            repeat_budget: 1
+        }).then(response => {
+            console.log(response)
+        });
     }
+
     render() {
         return (
             <div>
