@@ -13,11 +13,10 @@ import Link from '@mui/material/Link';
 import { Grid } from "@mui/material";
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { ThemeProvider} from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { Box } from '@mui/system';
-import  '../Theme/Theme';
-import { themeDark, themeLight } from '../Theme/Theme';
+import '../Theme/Theme';
+import { themeLight } from '../Theme/Theme';
 
 export default class Home extends React.Component
 {
@@ -25,9 +24,9 @@ export default class Home extends React.Component
     {
         return (
             <>
-                <ThemeProvider theme={themeDark}>
-                    <Card style={{ borderRadius: '0px' }} sx={{ minWidth: 275 }}>
-                        <CardContent>
+                <Card style={{ zIndex: -2, width: '100vw', height: '100vh', position: "absolute", borderRadius: '0px', background: 'linear-gradient(to right bottom, #87A9FF, #6079BC)' }}></Card>
+                
+                   
 
                             <Grid
                                 container
@@ -37,30 +36,74 @@ export default class Home extends React.Component
                                 justifyContent="center"
                                 style={{ height: '60vh' }}
                             >
-                                <Box color='black'>
-                                    <Typography align="center" variant="h2" component="h1"
-                                        gutterBottom fontFamily='jost' fontWeight='light' color='white'>
-                                        MOOLAH
-                                    </Typography>
-                                    <Typography align="center" variant="body1" component="h1"
-                                        gutterBottom fontFamily='jost' fontWeight='light' color='white'>
-                                        TAKE CONTROL OF YOUR SPENDING MONEY
-                                    </Typography>
-                                </Box>
+                                < Box
+                                    component="img"
+                                    sx={{
+
+                                        maxHeight: { xs: 233, md: 167 },
+                                        maxWidth: { xs: 350, md: 250 },
+                                    }}
+                                    alt="The house from the offer."
+                                    src="app-logo.png"
+                                />
+
+
+                                <Typography align="center" variant="body1" component="h1"
+                                    gutterBottom fontFamily='jost' fontWeight='light' color='white'>
+                                    TAKE CONTROL OF YOUR SPENDING MONEY
+                                </Typography>
+
                             </Grid>
-                        </CardContent>
-                    </Card>
+                        
                     <ThemeProvider theme={themeLight}>
                         <Grid
                             container
                             spacing={0}
+                           
                             direction="column"
                             alignItems="center"
                             justifyContent="center"
-                            style={{ height: '30vh' }}
+                            style={{ height: '50vh' }}
                         >
+                             < Box
+                                component="img"
+                                sx={{
+                                    zIndex:5,
+                                    position: "absolute",
+                                    height: "400px",
+                                    width: "300px",
+                                    bottom:"10vh"
+
+                                }}
+                                alt="The house from the offer."
+                                src="man.png"
+                            />
+                            < Box
+                                component="img"
+                                sx={{
+                                    zIndex:-1,
+                                    position: "absolute",
+                                    height: "40vh",
+                                    width: "100vw",
+
+                                }}
+                                alt="The house from the offer."
+                                src="bg-white.png"
+                            />
+                               < Box
+                                component="img"
+                                sx={{
+                                    zIndex:-2,
+                                    position: "absolute",
+                                    height: "48vh",
+                                    width: "100vw",
+
+                                }}
+                                alt="The house from the offer."
+                                src="bg-blue.png"
+                            />
                             <Typography variant="h4" component="h1"
-                                gutterBottom fontFamily='jost' fontWeight='bold'>
+                                gutterBottom fontFamily='jost' fontWeight='bold' color="black">
                                 Mindful Spending
                             </Typography>
                             <Typography gutterBottom>
@@ -69,9 +112,10 @@ export default class Home extends React.Component
                             <Link href="/Instructions">
                                 <Button variant="contained"> Lets Get Started</Button>
                             </Link>
+
                         </Grid>
                     </ThemeProvider>
-                </ThemeProvider>
+               
             </>
         );
     }
